@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SistemaHoteis</name>
+    </assembly>
+    <members>
+        <member name="M:SistemaHoteis.Controllers.CheckinController.AdicionarCheckin(SistemaHoteis.Data.Dtos.CheckinDto)">
+            <summary>
+            Criar um check-in
+            </summary>
+            <remarks>
+            {"dataCheckin":"DateTime","dataCheckout":"DateTime", "hotelId":"Guid", "hospedeId:"int"}
+            </remarks>
+            <param name="checkinDto">Dados do check-in</param>
+            <returns>Objeto check-in recém-criado</returns>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.CheckinController.BuscarCheckins">
+            <summary>
+            Obter todos os check-ins
+            </summary>
+            <remarks>
+            {"dataCheckin":"DateTime","dataCheckout":"DateTime", "hotel":"HotelId", "hospede:"HospedeId"}
+            </remarks>
+            <returns>Coleção de check-in</returns>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.CheckinController.BuscarChekcinPorId(System.Guid)">
+            <summary>
+            Retorna um check-in baseado no ID passado
+            </summary>
+            <param name="id">Identificador do check-in</param>
+            <returns>Dados de um check-in específico</returns>
+            <response code="200">Success</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.CheckinController.AtualizarCheckin(SistemaHoteis.Data.Dtos.CheckinDto,System.Guid)">
+            <summary>
+            Atualizar um check-in
+            </summary>
+            <remarks>
+            {"dataCheckin":"DateTime","dataCheckout":"DateTime", "hotelId":"Guid", "hospedeId:"int"}
+            </remarks>
+            <param name="id">Identificador do check-in</param>
+            <param name="checkinDto">Dados do check-in</param>
+            <returns>Contéudo vazio.</returns>
+            <response code="204">No Content</response>
+            <response code="400">Not Found</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.CheckinController.RemoverCheckin(System.Guid)">
+            <summary>
+            Excluir um check-in
+            </summary>
+            <param name="id">Identificador de check-in</param>
+            <returns>Conteúdo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HospedeController.AdicionarHospede(SistemaHoteis.Data.Dtos.HospedeDto)">
+            <summary>
+            Cadastrar um hospede
+            </summary>
+            <remarks>
+            {"name":"string","cpf":"string", "dataNascimento":"DateTime", "telefone:"string"}
+            </remarks>
+            <param name="hospedeDto">Dados do hospede</param>
+            <returns>Objeto hospede recém-criado</returns>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HospedeController.BuscarHospedes">
+            <summary>
+            Obter todos os hospedes
+            </summary>
+            <remarks>
+            {"name":"string","cpf":"string", "dataNascimento":"DateTime", "telefone:"string","checkins":"ICollection", "hoteis":"ICollection"}
+            </remarks>
+            <returns>Coleção de hospedes</returns>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HospedeController.BuscarHospedePorId(System.Int32)">
+            <summary>
+            Retorna um hospede baseado no ID passado
+            </summary>
+            <param name="id">Identificador do hospede</param>
+            <returns>Dados de um hospede específico</returns>
+            <response code="200">Success</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HospedeController.AtualizarHospede(SistemaHoteis.Data.Dtos.HospedeDto,System.Int32)">
+            <summary>
+            Atualizar um hospede
+            </summary>
+            <remarks>
+            {"name":"string","cpf":"string", "dataNascimento":"DateTime", "telefone:"string"}
+            </remarks>
+            <param name="id">Identificador do hospede</param>
+            <param name="hospedeDto">Dados do hotel</param>
+            <returns>Contéudo vazio.</returns>
+            <response code="204">No Content</response>
+            <response code="400">Not Found</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HospedeController.AtualizarParcialmenteHospede(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{SistemaHoteis.Data.Dtos.HospedeDto})">
+            <summary>
+            Atualizar parcialmente um hospede
+            </summary>
+            <remarks>
+            {"name":"string","cpf":"string", "dataNascimento":"DateTime", "telefone:"string"}
+            </remarks>
+            <param name="id">Identificador do hospede</param>
+            <param name="document">Dados do documento</param>
+            <returns>Contéudo vazio.</returns>
+            <response code="204">No Content</response>
+            <response code="400">Bad Request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HospedeController.RemoverHospede(System.Int32)">
+            <summary>
+            Excluir um hospede
+            </summary>
+            <param name="id">Identificador de hospede</param>
+            <returns>Conteúdo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HotelController.AdicionarHotel(SistemaHoteis.Data.Dtos.HotelDto)">
+            <summary>
+            Cadastrar um hotel
+            </summary>
+            <remarks>
+            {"name":"string","description":"string", "endereco":"string", "numeroDeQuartos:"int"}
+            </remarks>
+            <param name="hotelDto">Dados do hotel</param>
+            <returns>Objeto hotel recém-criado</returns>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HotelController.BuscarHoteis">
+            <summary>
+            Obter todos os hotéis
+            </summary>
+            <remarks>
+            {"name":"string","description":"string", "endereco":"string", "numeroDeQuartos":"int", "checkins":"ICollection"}
+            </remarks>
+            <returns>Coleção de hotéis</returns>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HotelController.BuscarHotelPorId(System.Guid)">
+            <summary>
+            Retorna um hotel baseado no ID passado
+            </summary>
+            <param name="id">Identificador do hotel</param>
+            <returns>Dados de um hotel específico</returns>
+            <response code="200">Success</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HotelController.AtualizarHotel(SistemaHoteis.Data.Dtos.HotelDto,System.Guid)">
+            <summary>
+            Atualizar um hotel
+            </summary>
+            <remarks>
+            {"name":"string","description":"string", "endereco":"string", "numeroDeQuartos:"int"}
+            </remarks>
+            <param name="id">Identificador do hotel</param>
+            <param name="hotelDto">Dados do hotel</param>
+            <returns>Contéudo vazio.</returns>
+            <response code="204">No Content</response>
+            <response code="400">Not Found</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HotelController.AtualizarParcialmenteHotel(System.Guid,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{SistemaHoteis.Data.Dtos.HotelDto})">
+            <summary>
+            Atualizar parcialmente um hotel
+            </summary>
+            <remarks>
+            {"name":"string","description":"string", "endereco":"string", "numeroDeQuartos:"int"}
+            </remarks>
+            <param name="id">Identificador do hotel</param>
+            <param name="document">Dados do documento</param>
+            <returns>Contéudo vazio.</returns>
+            <response code="204">No Content</response>
+            <response code="400">Bad Request</response>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:SistemaHoteis.Controllers.HotelController.DeletarHotel(System.Guid)">
+            <summary>
+            Excluir um hotel
+            </summary>
+            <param name="id">Identificador de hotel</param>
+            <returns>Conteúdo vazio</returns>
+            <response code="204">No Content</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="T:SistemaHoteis.Migrations.InitialMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.InitialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.InitialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaHoteis.Migrations.MigrationTeste">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationTeste.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationTeste.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationTeste.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaHoteis.Migrations.MigrationCorrection">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationCorrection.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationCorrection.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationCorrection.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaHoteis.Migrations.AdjustTables">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.AdjustTables.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.AdjustTables.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.AdjustTables.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaHoteis.Migrations.AdjustRelationships">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.AdjustRelationships.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.AdjustRelationships.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.AdjustRelationships.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaHoteis.Migrations.MigrationTesteFunction">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationTesteFunction.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationTesteFunction.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaHoteis.Migrations.MigrationTesteFunction.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
